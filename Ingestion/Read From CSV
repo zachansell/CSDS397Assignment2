@@ -1,0 +1,8 @@
+BULK INSERT employee_data_source
+FROM '~insert file pathway here~'
+WITH
+(
+    FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR = '\n'
+)
