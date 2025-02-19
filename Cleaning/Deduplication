@@ -1,0 +1,9 @@
+CREATE OR ALTER PROCEDURE deduplicate
+AS
+BEGIN
+SELECT DISTINCT * INTO employee_data_source_deduped FROM employee_data_source;
+
+DROP TABLE employee_data_source;
+
+EXEC sp_rename 'employee_data_source_deduped', 'employee_data_source';
+END;
