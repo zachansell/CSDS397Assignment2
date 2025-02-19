@@ -1,4 +1,45 @@
-To ingest the raw data from the csv file, execute the following SQL statement after inserting the file pathway:
+Firstly, create the following 3 tables to store the data with the following SQL statements:
+
+CREATE OR ALTER TABLE employee_data_source (
+    emp_id INT,
+    name VARCHAR(100),
+    age INT,
+    department VARCHAR(100),
+    date_of_joining DATE,
+    years_of_experience INT,
+    country VARCHAR(100),
+    salary DECIMAL(15,2),
+    performance_rating VARCHAR(100)
+);
+
+CREATE OR ALTER TABLE flagged_employee_data (
+    emp_id INT,
+    name VARCHAR(100),
+    age INT,
+    department VARCHAR(100),
+    date_of_joining DATE,
+    years_of_experience INT,
+    country VARCHAR(100),
+    salary DECIMAL(15,2),
+    performance_rating VARCHAR(100)
+);
+
+CREATE OR ALTER TABLE employee_data (
+    emp_id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    age INT NOT NULL,
+    department VARCHAR(100) NOT NULL,
+    date_of_joining DATE NOT NULL,
+    years_of_experience INT NOT NULL,
+    country VARCHAR(100) NOT NULL,
+    salary DECIMAL(15,2) NOT NULL,
+    performance_rating VARCHAR(100) NOT NULL
+);
+
+
+
+
+To ingest the raw data from the csv file into the table, execute the following SQL statement after inserting the file pathway:
 
 BULK INSERT employee_data_source
 FROM '~insert file pathway here~'
