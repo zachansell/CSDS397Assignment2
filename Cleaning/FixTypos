@@ -1,0 +1,10 @@
+CREATE OR ALTER PROCEDURE fixTypos 
+    @column NVARCHAR(100),
+    @typoedName NVARCHAR(100),
+    @correctName NVARCHAR(100)
+AS
+BEGIN
+   EXEC('UPDATE employee_data_source
+        SET '+@column+'='''+@correctName+'''
+        WHERE '+@column+' ='''+@typoedName+''';');
+END;
