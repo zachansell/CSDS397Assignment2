@@ -1,5 +1,3 @@
-Firstly, create the following 3 tables to store the data with the following SQL statements:
-
 CREATE OR ALTER TABLE employee_data_source (
     emp_id INT,
     name VARCHAR(100),
@@ -35,17 +33,3 @@ CREATE OR ALTER TABLE employee_data (
     salary DECIMAL(15,2) NOT NULL,
     performance_rating VARCHAR(100) NOT NULL
 );
-
-
-
-
-To ingest the raw data from the csv file into the table, execute the following SQL statement after inserting the file pathway:
-
-BULK INSERT employee_data_source
-FROM '~insert file pathway here~'
-WITH
-(
-    FIRSTROW = 2,
-    FIELDTERMINATOR = ',',
-    ROWTERMINATOR = '\n'
-)
