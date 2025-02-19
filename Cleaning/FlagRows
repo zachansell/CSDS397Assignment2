@@ -1,0 +1,6 @@
+CREATE OR ALTER PROCEDURE moveRows (@cond VARCHAR(255))
+AS
+BEGIN
+    EXEC('INSERT INTO flagged_employee_data SELECT * FROM employee_data_source WHERE '+@cond);
+    EXEC('DELETE FROM employee_data_source WHERE '+@cond);
+END;
